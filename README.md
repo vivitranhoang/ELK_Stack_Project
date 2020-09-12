@@ -201,7 +201,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tbody>
 </table>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2>4. Access of Policies</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2>4. Access Policies</h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;"><br /> <br />The machines on the internal network are not exposed to the public Internet. Our webservers can only be accessed through the public IP address of our load balancer. It may be necessary to reconfigure the Network Security Group settings to allow for HTTP traffic for access.<br /> <br />The webservers and ELK server can be accessed from the jumpbox VM via port 22 and SSH keys, though it may be necessary to create an inbound rule in their Security Group Settings. However, whereas the webservers's DVWA application is accessed via port 80 of the load balancer's public IP address, the ELK server's Kibana application can be accessed via port 5601 through its own public IP address (subject to change if not reserved). Through Kibana's GUI in the browser, logs can be easily monitored in a readable format.<br /> <br /> A summary of the access policies in place can be found in the table below.</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <table width="100%" cellspacing="0" cellpadding="4">
