@@ -16,7 +16,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <li style="margin-bottom: 0in; line-height: 100%;">Machines Being Monitored</li>
 </ol>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center">&nbsp;</p>
-</br>
+<br />
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><h2>1. Network Diagram</h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/ELK-diagram.png?raw=true" alt="" /></p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
@@ -29,10 +29,10 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tbody>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
-<p align="center"><strong>File Name</strong></p>
+</br><p align="center"><strong>File Name</strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
-<p align="center"><strong>Description &amp; Notes</strong></p>
+<br /><p align="center"><strong>Description &amp; Notes</strong></p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
@@ -42,7 +42,6 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;"><em>&nbsp;</em>
 <p style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%;" align="left">This file will already exist in your <strong>ansible</strong> folder inside of your jumpbox&rsquo;s ansible container. It is important to include the private IP addresses of your webservers in this file under [webservers], as well as the private IP address of your ELK server under [elk]. Be sure to unhash properly.</p>
-<p style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%;" align="left"><em>&nbsp;</em></p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
@@ -61,7 +60,6 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">&nbsp;
 <p style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%;" align="left">By putting this in the <em>/etc/docker</em> folder inside of the jumpbox VM, the IP address of the ansible container will be changed so that it will match the subnet of our virtual network.</p>
-<p style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%;" align="left">&nbsp;</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
@@ -80,7 +78,6 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">&nbsp;
 <p style="margin-bottom: 0in; line-height: 100%;" align="left"><span style="font-style: normal;"><span style="font-weight: normal;">The file </span></span><em><span style="font-weight: normal;">install-elk.yml </span></em><span style="font-style: normal;"><span style="font-weight: normal;">is used, from the ansible container in the jumpbox, to install and launch ELK in the ELK </span></span><span style="font-style: normal;"><span style="font-weight: normal;">VM</span></span><span style="font-style: normal;"><span style="font-weight: normal;">. </span></span><span style="font-style: normal;"><span style="font-weight: normal;">Take special note of the published ports at the bottom of the files&mdash;by adding &ldquo;:5601&rdquo; to the public IP address of the ELK VM, the user can access Kibana, assuming everything is installed correctly.</span></span></p>
-<p style="margin-bottom: 0in; line-height: 100%;" align="left">&nbsp;</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
@@ -97,15 +94,16 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <p><em><strong>filebeat-playbook.yml</strong></em></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">&nbsp;
-<p style="margin-bottom: 0in; line-height: 100%;" align="left"><span style="font-style: normal;"><span style="font-weight: normal;">T</span></span><span style="font-style: normal;"><span style="font-weight: normal;">his is the playbook that will install and launch the </span></span><span style="font-style: normal;"><span style="font-weight: normal;">Filebeat server in the vulnerable</span></span><span style="font-style: normal;"><span style="font-weight: normal;"> webserve</span></span><span style="font-style: normal;"><span style="font-weight: normal;">r</span></span><span style="font-style: normal;"><span style="font-weight: normal;">. </span></span><span style="font-style: normal;"><span style="font-weight: normal;">Filebeat will send logs to ELK for analysis.<br /><br /></span></span></p>
+<p style="margin-bottom: 0in; line-height: 100%;" align="left"><span style="font-style: normal;">This is the playbook that will install and launch the Filebeat shipper in the vulnerable webserver. Filebeat will send logs to ELK for analysis.<br /></span></p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
-<p style="text-align: left;" align="center"><em><strong>startdocker.sh</strong> </em></p>
+<br />
+<p style="text-align: left;"><em><strong>startdocker.sh</strong> </em></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
-<p style="text-align: left;" align="center">&nbsp;This is a script that will be referenced in the crontab in order to have our container and playbooks run upon startup. It may take a minute or two for the playbooks to finish running, so Kibana will not start right away in the browser.</p>
+<p style="text-align: left;">&nbsp;This is a script that will be referenced in the crontab in order to have our container and playbooks run upon startup. It may take a minute or two for the playbooks to finish running, so Kibana will not start right away in the browser.</p>
 </td>
 </tr>
 </tbody>
@@ -118,16 +116,16 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tbody>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">Name</p>
+<p align="center"><strong>Name</strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">Function</p>
+<p align="center"><strong>Function</strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">IP Address</p>
+<p align="center"><strong>IP Address</strong></p>
 </td>
 <td style="border: 1px solid #000000; padding: 0.04in; height: 35px;" width="25%">
-<p align="center">Operating System</p>
+<p align="center"><strong>Operating System</strong></p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
@@ -154,7 +152,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
 <p align="center">&nbsp;10.10.0.5</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; text-align: center; height: 35px;" width="25%"><br />Linux</td>
+<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%"><p align="center">Linux</p></td>
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
@@ -208,13 +206,13 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tbody>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">Name</p>
+<p align="center"><strong>Name</strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">IP Address</p>
+<p align="center"><strong>IP Address</strong></p>
 </td>
 <td style="border: 1px solid #000000; padding: 0.04in; height: 35px;" width="25%">
-<p align="center">Publicly Accessible?</p>
+<p align="center"><strong>Publicly Accessible?</strong></p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
@@ -235,7 +233,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
 <p align="center">&nbsp;10.10.0.5</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; text-align: center; height: 35px;" width="25%"><br />No</td>
+<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; text-align: center; height: 35px;" width="25%"><br /><p align="center">No</p></td>
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
@@ -284,6 +282,6 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </ol>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2> 6. Beats in Use</h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;">This ELK server is configured to monitor "Red Team VM" (10.10.0.5) and "Blue Team VM" (10.10.0.6); both VMs have Filebeat installed in order to send syslogs and auditd logs to Kibana for easy monitoring, but by simply editing or creating new playbooks, more modules - such as kafka or apache - or shippers - such as Metricbeat - can be installed to monitor other types of logs or data. Below are examples of how Kibana will look as it monitors a webserver.<br /> <br /><br /></p>
+<p style="margin-bottom: 0in; line-height: 100%;">This ELK server is configured to monitor "Red Team VM" (10.10.0.5) and "Blue Team VM" (10.10.0.6); both VMs have Filebeat installed in order to send syslogs and auditd logs to Kibana for easy monitoring, but by simply editing or creating new playbooks, more modules (such as kafka or apache) or shippers (such as Metricbeat) can be installed to monitor other types of logs or data. Below are examples of how Kibana will look as it monitors a webserver.<br /> <br /><br /></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/06.PNG?raw=true" alt="Syslog monitoring through Filebeat and Kibana" /></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/07.PNG?raw=true" alt="Auditd monitoring through Filebeat and Kibana" /></p>
