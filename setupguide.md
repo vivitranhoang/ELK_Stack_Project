@@ -19,4 +19,38 @@ but it is particularly vital in this case as it will interfere with package inst
 <li>Configuring and Executing Playbooks to Launch ELK Stack</li>
 <li>Kibana and Server Maintenance</li>
 <br />
-
+<p align="center">Initial Azure Configurations</p>
+<br />
+<p align="left">First, create a Resource Group and a corresponding Virtual Network so that the webservers and jumpbox virtual machines will have the same subnet. </p>
+<br />
+<p align="center">Ansible Configuration in Jumpbox</p>
+<br />
+<p align="left"><strong>1. <em>sudo apt update && sudo apt upgrade</em></strong>
+<br />As mentioned earlier, it is important to update & upgrade VMs so docker can be installed.
+<br /><strong>2. <em>sudo apt install docker.io</em></strong>
+<br />
+<br /><strong>3. 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+<p align="center">Preparing Virtual Machines for DVWA Containers</p>
+<br />
+<br />
+<p align="center">Configuring and Executing Playbook to Launch DVWA in VMs</p>
+<br />
+<br />
+<p align="center">Setting Up Load Balancer</p>
+<br />
+<br />
+<p align="center">Preparing New Virtual Machine for ELK</p>
+<br />
+<br />
+<p align="center">Configuring and Executing Playbooks to Launch ELK Stack</p>
+<br />
+<br />
+<p align="center">Kibana and Server Maintenance</p>
