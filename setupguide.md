@@ -4,7 +4,7 @@
 <br />
 <h1>Update and Upgrade Virtual Machines</h1>
 <br />
-<p align="left">As stated in the title, always be sure to update [<em>sudo apt update</em>] and upgrade [<em>sudo apt upgrade</em>] <strong>all</strong> virtual machines first! 
+<p align="left">As stated above, always be sure to update -- <em>sudo apt update</em> -- and upgrade -- <em>sudo apt upgrade</em> -- <strong>all</strong> virtual machines first! 
 This includes the VMs hosting DVWA and ELK containers. This should be the first step in VM creation and maintenance in general, 
 but it is particularly vital in this case as it will interfere with package installation and playbook execution should the systems be out of date.</p>
 <br />
@@ -66,11 +66,11 @@ Azure will issue a warning prior to finalizing the creation of the VM about the 
 <p align="center"><h2>2. Ansible Configuration in Jumpbox</h2></p>
 <br /><em>ssh</em> into the Jumpbox from your local machine from the folder containing the public key. 
 <br />
-<p align="left"><strong>a.) <em>sudo apt update && sudo apt upgrade</em></strong>
+<p align="left"><strong>a.) <mark><em>sudo apt update && sudo apt upgrade</em></mark></strong>
 <br />
 <br />As mentioned earlier, it is important to update & upgrade VMs so docker can be installed. This may take a few minutes.
 <br />
-<br /><strong>b.) <em>sudo apt install docker.io</em></strong>
+<br /><strong>b.) <mark><em>sudo apt install docker.io</em></mark></strong>
 <br />
 <br />Adding <em>-y</em> to the command will bypass having to input yes or no by automatically inputting yes to the use of additional memory. Otherwise simply type Y or yes when prompted.
 <br />
@@ -86,7 +86,8 @@ Azure will issue a warning prior to finalizing the creation of the VM about the 
 <br />
 <br /><strong>e.) <em>sudo docker run -ti cyberxsecurity/ansible bash</em></strong>
 <br />
-<br />This command will start and attach (connect) you to the new ansible container. Instead of <em>azureuser@VM-name</em>, it will now show <em>root@container-number</em>. Keep in mind that as root you no longer need to use sudo, as a lightweight container, some commands and services may not be available.
+<br />This command will start and attach (connect) you to the new ansible container. Instead of <em>azureuser@VM-name</em>, it will now show <em>root@container-number</em>. 
+As root, you no longer need to use sudo. It should also be noted that, as a lightweight container, some commands and services may not be available.
 <br />
 <br /><strong>f.) <em>ifconfig</em></strong>
 <br />
