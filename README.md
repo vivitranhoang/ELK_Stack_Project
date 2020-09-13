@@ -2,7 +2,8 @@
 UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 
 <p style="text-align: center;"><span style="text-decoration: underline;"><strong><h1>ELK Stack Deployment Report</h1></strong></span></p>
-<p style="margin-bottom: 0in; line-height: 100%;">If you are recreating a network consisting of virtual machines with ansible and ELK, please also refer to the <strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md" target="_blank" rel="nofollow">Set-Up Guide</a> </strong>for a step-by-step explanation, as well as possible troubleshooting solutions.<span style="font-weight: normal;"><br /></span></p>
+<p style="margin-bottom: 0in; line-height: 100%;">If you are recreating a network consisting of virtual machines with ansible and ELK, please also refer to the 
+<strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md" target="_blank" rel="nofollow">Set-Up Guide</a> </strong>for a step-by-step explanation, as well as possible troubleshooting solutions.<span style="font-weight: normal;"><br /></span></p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 
 <p style="margin-bottom: 0in; line-height: 100%;">This document contains the following details:</p>
@@ -22,7 +23,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2>2. Important Files</h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;">The files available in this repository have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above, or, alternatively, select portions of these files may be used to install only certain pieces of it, such as Filebeat. However, there are also a few files already present in the machine once the appropriate containers are made, and some changes are necessary for successful deployment. Please refer to the&nbsp;<strong>Set-Up</strong><strong> Guide</strong> for more details.</p>
+<p style="margin-bottom: 0in; line-height: 100%;">The files available in this repository have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above, or, alternatively, select portions of these files may be used to install only certain pieces of it, such as Filebeat. However, there are also a few files already present in the machine once the appropriate containers are made, and some changes are necessary for successful deployment. Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md"><strong>Set-Up Guide</strong></a> for more details.</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <table width="100%" cellspacing="0" cellpadding="4">

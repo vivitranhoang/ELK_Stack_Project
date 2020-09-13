@@ -29,7 +29,7 @@ Placing all resources in one Resource Group is simply good housekeeping and easi
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/11.PNG?raw=true">
 <br />
 <br />Simply type in the type of resource intended to create -- for example, "resource group" -- in the search bar. 
-More often than not the top search result will be the right resource. Simply click on the link and then click "Create."
+More often than not the top search result will be the right resource. Click on the link and then click "Create."
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/10.PNG?raw=true">
 <br /> 
@@ -63,20 +63,23 @@ Keep in mind that SSH keys with passphrases may cause errors with playbooks in l
 Azure will issue a warning prior to finalizing the creation of the VM about the dangers of exposing the 22 port, but it will not stop the creation of the machine.
 <br />
 <br /> 
-<p align="center"><h2>2. Ansible Configuration in Jumpbox</h2></p>
-<br /><em>ssh</em> into the Jumpbox from your local machine from the folder containing the public key. 
+<p align="center"><h2>2. Ansible Configuration in Jumpbox Virtual Machine</h2></p>
+<br /><em>ssh</em> into the Jumpbox from the folder in your local machine containing the public key, 
+with the command <em>ssh -i [private-key] azureuser@[VM public IP address]</em>. Azure also has a Key Vault service for an additional cost, 
+but for this exercise we will be utilizing our own keys.
 <br />
-<p align="left"><strong>a.) <mark><em>sudo apt update && sudo apt upgrade</em></mark></strong>
+<p align="left"><strong>a.) <em>sudo apt update && sudo apt upgrade</em></strong>
 <br />
 <br />As mentioned earlier, it is important to update & upgrade VMs so docker can be installed. This may take a few minutes.
 <br />
-<br /><strong>b.) <mark><em>sudo apt install docker.io</em></mark></strong>
+<br /><strong>b.) <em>sudo apt install docker.io</em></strong>
 <br />
 <br />Adding <em>-y</em> to the command will bypass having to input yes or no by automatically inputting yes to the use of additional memory. Otherwise simply type Y or yes when prompted.
 <br />
 <br /><strong>c.) <em>sudo systemctl start docker</em></strong>
 <br />
-<br />More often than not, installing docker does not automatically start it. <em>systemctl start</em> ensures that docker is running.
+<br />More often than not, installing docker does not automatically start it. <em>systemctl start</em> ensures that docker starts. 
+If the command fails, remove and install docker, and try again. 
 <br />
 <br /><strong>d.) <em>sudo docker pull cyberxsecurity/ansible</em></strong>
 <br />
@@ -84,16 +87,17 @@ Azure will issue a warning prior to finalizing the creation of the VM about the 
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/15.PNG?raw=true">
 <br />
-<br /><strong>e.) <em>sudo docker run -ti cyberxsecurity/ansible bash</em></strong>
+<br /><strong>e.) <em>sudo docker run -ti cyberxsecurity/ansible:latest bash</em></strong>
 <br />
-<br />This command will start and attach (connect) you to the new ansible container. Instead of <em>azureuser@VM-name</em>, it will now show <em>root@container-number</em>. 
-As root, you no longer need to use sudo. It should also be noted that, as a lightweight container, some commands and services may not be available.
+<br />This command will start and attach (connect) you to the new ansible container. Instead of <em>azureuser@[VM-name]</em>, it will now show <em>root@[container-ID]</em>. 
+Be aware of where you are in the network. It may sound obvious, but connecting and exiting repeatedly into different VMs and containers may cause some confusion. 
+If a command does not work, it may be because you are in the incorrect container or VM. In some lightweight containers, certain commands and services may not be available.
 <br />
 <br /><strong>f.) <em>ifconfig</em></strong>
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/17.PNG?raw=true">
 <br />
-<br />As you can see, the IP address of this container does not fall within our Virtual Network's address pool.
+<br />As you can see, the IP address of this container does not fall within our Virtual Network's address pool. We will need to configure it with a .json file so that it does.
 <br />
 <br /><strong>g.) <em>exit</em></strong>
 <br />
@@ -103,8 +107,10 @@ As root, you no longer need to use sudo. It should also be noted that, as a ligh
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/16.PNG?raw=true"
 <br />
-<br />Be sure to place the <em>daemon.json</em> file, which is available in this repository, in the <a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/daemon.json"><em>/etc/docker</em></a> folder. 
+<br />Be sure to place the <em>daemon.json</em> file, which is available in this repository, in the <em>/etc/docker</em> folder. 
 Be sure to type the correct address space that matches your Virtual Network, and be mindful of spaces/tabs.
+<br />
+<br />CTRL + O to save, CTRL + X to exit.
 <br />
 <br /><strong>i.) <em>sudo systemctl restart docker</em></strong>
 <br />
@@ -114,9 +120,12 @@ Be sure to type the correct address space that matches your Virtual Network, and
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/18.PNG?raw=true">
 <br />
-<br />This command lists all containers made. Do not confuse it with <em>sudo docker ps</em>, which lists all <strong>running</strong> containers.
+<br />This command lists all containers made. The newly created container should be listed and be given a randomized, sometimes nonsensical name.
 <br />
 <br /><strong>k.) <em>sudo docker start [container-name or container-id]</em></strong>
+<br />
+<br />Starts the container. All running containers will be listed as an output for the command <em>sudo docker ps</em> 
+(not to be confused with <em>sudo docker container list -a</em>, which lists all containers regardless of state). Use it to double-check if the container is in fact running.
 <br />
 <br /><strong>l.) <em>sudo docker exec -it [container-name] bash</em></strong>
 <br />
@@ -127,29 +136,31 @@ Also note that exiting from an <em>attach</em> session will result in the contai
 <br />
 <br /><h3>m.) apt update && apt upgrade!</h3>
 <br />
-<br />Because this is a container, it will take less time than updating the jumpbox.
+<br />Because this is a container, it will take less time than updating a full VM.
 <br />
 <br /><strong>n.) <em>ifconfig</em></strong>
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/19.PNG?raw=true">
 <br />
 <br />The container should now have an appropriate IP address. If not, double-check to make sure there are no typos in <em>daemon.json</em>, 
-and try to restart the docker service or the container itself (<em>sudo docker restart [container]</em>) again.
+and try to restart the docker service or the container itself (<em>sudo docker restart [container]</em>) again. 
+Remember that if you restart the docker service you will have to start the container again.
 <br />
 <br /><strong>o.) <em>ssh-keygen</em></strong>
 <br />
-<br />While still inside of the ansible container, create a key. Be sure to create a key without a password, 
+<br />While still inside of the ansible container, create an ssh key. Be sure to create a key without a password, 
 as having a password may result in fatal errors when running the playbooks in later steps 
-(though it may be fixed by adding additional syntax and such to the scripts, it creates the possibility of even more errors).
+(although it may be fixed by adding additional syntax and such to the scripts, doing so could lead to even more errors and troubleshooting).
 <br />
 <p align="center"><h2>2. Creating New Virtual Machines for DVWA Containers</h2></p>
-<br />Go back to the Azure portal and create new Virtual Machines which will act as our vulnerable webservers. The steps should be similar to the creation of the Jumpbox VM, but for two steps
+<br />Go back to the Azure portal and create new Virtual Machines which will act as our vulnerable webservers. 
+The steps should be similar to the creation of the Jumpbox VM, save two steps:
 <br />
-<br />First, instead of the public key made from your local machine, it will be using the new public key made inside of the ansible container. 
+<br /><strong>First</strong>, instead of the public key from your local machine, it will be using the new public key made from inside the ansible container. 
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/20.PNG?raw=true">
 <br />
-<br />Second, these VMs should <strong>not</strong> have public IP addresses. For Public IP, select "None," shown in the screenshot above. 
+<br /><strong>Second</strong>, these VMs should <strong>not</strong> have public IP addresses. For Public IP, select "None," shown in the screenshot above. 
 The servers should only be publically accessed through the Load Balancer's IP address, which will be created in later steps.
 <br />
 <br />Should you accidentally create a VM with a public IP address, you can simply disassociate it by clicking the public IP address on the VM's main resource page, clicking "Dissociate" and then "Delete."
@@ -158,9 +169,13 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br />Repeat these steps for as many webservers you would like (within reason). 2-3 is adequate for testing and demonstration purposes.
 <br />
+<br />Additionally, you may want to change the SSH rule under Networking (only after the VM has been created) to only allow ssh connection from the jumpbox's ansible container. 
+<br />
+<br /><img src="27.PNG">
+<br />
 <p align="center"><h2>Configuring and Executing Playbook to Launch DVWA in VMs</h2></p>
 <br />
-<br /><strong>a.) ssh into the new Virtual Machine</strong>
+<br /><strong>a.) <em>ssh</em> into the new Virtual Machine(s)</strong>
 <br />
 <br />From your ansible container, ssh into your newly created VM.
 <br />
@@ -170,29 +185,58 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br />Repeat steps <strong>a-c</strong> for all Virtual Machines intended to be used as webservers.
 <br />
-<br /><strong>d.) </strong>
+<br /><strong>d.) <em>nano /etc/ansible/hosts</em></strong>
 <br />
+<br /><img src="22.PNG">
 <br />
+<br />In this <em>hosts</em> file, unhash the [webservers] line and add new lines consisting of your webserver VMs' private IP address followed by 
+<em>ansible_python_interpreter=/usr/bin/python3</em>. 
 <br />
+<br /><img src="23.PNG">
 <br />
+<br />CTRL + O to save, CTRL + X to exit.
 <br />
+<br /><strong>e.) <em>nano /etc/ansible/ansible.cfg</em></strong>
 <br />
+<br /><img src="28.PNG">
 <br />
+<br />Find #inventory     = /etc/ansible/hosts and unhash it. It should be on the first page of the file.
 <br />
+<br /><img src="25.PNG">
 <br />
+<br />Locate #remote_user = root, unhash it, and change it to remote_user = azureuser, or the appropriate username for your VM. This selects the default user for the playbooks. 
+If you are having difficulty locating it, use CTRL + W and search "remote_user."
 <br />
+<br /><img src="29.PNG">
 <br />
+<br />Locate #private_key_file, unhash, and change it to include your private key. Include its absolute path. 
 <br />
+<br />Alternatively, you may try to find and unhash #host_key_checking = false, but is not recommended for security purposes. Save & exit.
 <br />
+<br /><strong>f.) <em>nano dvwa-playbook.yml</em></strong>
 <br />
+<br />Copy+paste the text of or download the <a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/dvwa-playbook.yml"><em>dvwa-playbook.yml</em></a> file, 
+available in this repository. When running the playbook, you will need to be in the same folder as this file, so remember where you created or saved the file.
 <br />
+<br /><strong>g.) <em>ansible-playbook dvwa-playbook.yml</em>
 <br />
+<br /><img src="30.PNG"> 
 <br />
+<br />The command runs the DVWA playbook, which installs docker and DVWA containers in the webserver VMs. This may take a few minutes. 
+Should there be any <strong>fatal</strong> errors, double check your path, your private key, the <em>ansible.cfg</em> file, the <em>hosts</em> file, the VMs through Azure (in case they have been stopped). 
+There are a multitude of factors which can cause errors, so be sure to pay close attention to what the errors are telling you. For example: 
 <br />
+<br /><img src="26.PNG">
 <br />
+<br />The above shows a fatal output that tells us the VM is unreachable due to key permissions. There may be an error with the key when inputted into Azure, 
+the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to a password on the key file.
 <br />
+<br /><strong>g.) <em>ansible -m ping all</em>
 <br />
-
+<br /><img src="31.PNG"
+<br />
+<br />This command pings our containers to let us know if they are running properly.
+<br />
 <p align="center"><h2>Setting Up Load Balancer</h2></p>
 <br />
 <br />
