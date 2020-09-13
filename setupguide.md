@@ -74,23 +74,23 @@ Azure will issue a warning prior to finalizing the creation of the VM about the 
 <br />
 <br />Adding <em>-y</em> to the command will bypass having to input yes or no by automatically inputting yes to the use of additional memory. Otherwise simply type Y or yes when prompted.
 <br />
-<br /><strong>c.) <em>sudo systemctl start docker</em>
+<br /><strong>c.) <em>sudo systemctl start docker</em></strong>
 <br />
 <br />More often than not, installing docker does not automatically start it. <em>systemctl start</em> ensures that docker is running.
 <br />
-<br /><strong>d.) <em>sudo docker pull cyberxsecurity/ansible</em>
+<br /><strong>d.) <em>sudo docker pull cyberxsecurity/ansible</em></strong>
 <br />
 <br />This command pulls the latest version of an ansible image. The output should look like this:
 <br />
-<br /><img src="15.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/15.PNG?raw=true">
 <br />
-<br /><strong>e.) <em>sudo docker run -ti cyberxsecurity/ansible bash</em>
+<br /><strong>e.) <em>sudo docker run -ti cyberxsecurity/ansible bash</em></strong>
 <br />
 <br />This command will start and attach (connect) you to the new ansible container. Instead of <em>azureuser@VM-name</em>, it will now show <em>root@container-number</em>. Keep in mind that as root you no longer need to use sudo, as a lightweight container, some commands and services may not be available.
 <br />
 <br /><strong>f.) <em>ifconfig</em></strong>
 <br />
-<br /><img src="17.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/17.PNG?raw=true">
 <br />
 <br />As you can see, the IP address of this container does not fall within our Virtual Network's address pool.
 <br />
@@ -100,9 +100,9 @@ Azure will issue a warning prior to finalizing the creation of the VM about the 
 <br />
 <br /><strong>h.) <em>sudo nano /etc/docker/daemon.json</em></strong>
 <br />
-<br /><img src="16.PNG"
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/16.PNG?raw=true"
 <br />
-<br />Be sure to place the <em>daemon.json</em> file, which is available in this repository, in the <em>/etc/docker</em> folder. 
+<br />Be sure to place the <em>daemon.json</em> file, which is available in this repository, in the <a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/daemon.json"><em>/etc/docker</em></a> folder. 
 Be sure to type the correct address space that matches your Virtual Network, and be mindful of spaces/tabs.
 <br />
 <br /><strong>i.) <em>sudo systemctl restart docker</em></strong>
@@ -111,7 +111,7 @@ Be sure to type the correct address space that matches your Virtual Network, and
 <br />
 <br /><strong>j.) <em>sudo docker container list -a</em></strong>
 <br />
-<br /><img src="18.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/18.PNG?raw=true">
 <br />
 <br />This command lists all containers made. Do not confuse it with <em>sudo docker ps</em>, which lists all <strong>running</strong> containers.
 <br />
@@ -130,7 +130,7 @@ Also note that exiting from an <em>attach</em> session will result in the contai
 <br />
 <br /><strong>n.) <em>ifconfig</em></strong>
 <br />
-<br /><img src="19.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/19.PNG?raw=true">
 <br />
 <br />The container should now have an appropriate IP address. If not, double-check to make sure there are no typos in <em>daemon.json</em>, 
 and try to restart the docker service or the container itself (<em>sudo docker restart [container]</em>) again.
@@ -146,14 +146,14 @@ as having a password may result in fatal errors when running the playbooks in la
 <br />
 <br />First, instead of the public key made from your local machine, it will be using the new public key made inside of the ansible container. 
 <br />
-<br /><img src="20.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/20.PNG?raw=true">
 <br />
 <br />Second, these VMs should <strong>not</strong> have public IP addresses. For Public IP, select "None," shown in the screenshot above. 
 The servers should only be publically accessed through the Load Balancer's IP address, which will be created in later steps.
 <br />
 <br />Should you accidentally create a VM with a public IP address, you can simply disassociate it by clicking the public IP address on the VM's main resource page, clicking "Dissociate" and then "Delete."
 <br />
-<br /><img src="21.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/21.PNG?raw=true">
 <br />
 <br />Repeat these steps for as many webservers you would like (within reason). 2-3 is adequate for testing and demonstration purposes.
 <br />
