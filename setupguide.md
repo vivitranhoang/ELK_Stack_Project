@@ -218,7 +218,7 @@ If you are having difficulty locating it, use CTRL + W and search "remote_user."
 <br />Copy+paste the text of or download the <a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/dvwa-playbook.yml"><em>dvwa-playbook.yml</em></a> file, 
 available in this repository. When running the playbook, you will need to be in the same folder as this file, so remember where you created or saved the file.
 <br />
-<br /><strong>g.) <em>ansible-playbook dvwa-playbook.yml</em>
+<br /><strong>g.) <em>ansible-playbook dvwa-playbook.yml</em></strong>
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/30.PNG?raw=true"> 
 <br />
@@ -231,7 +231,7 @@ There are a multitude of factors which can cause errors, so be sure to pay close
 <br />The above shows a fatal output that tells us the VM is unreachable due to key permissions. There may be an error with the key when inputted into Azure, 
 the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to a password on the key file.
 <br />
-<br /><strong>g.) <em>ansible -m ping all</em>
+<br /><strong>g.) <em>ansible -m ping all</em></strong>
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/31.PNG?raw=true"
 <br />
