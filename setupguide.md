@@ -55,7 +55,7 @@ It may be necessary to select a larger size should there be more than 3 or 4 web
 <br />Because it is an Ubuntu and not a Windows OS, RDP is not available. In the examples, SSH public keys on local machines were used. 
 Keep in mind that SSH keys with passphrases may cause errors with playbooks in later steps.
 <br />
-<br /><img src="14.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/14.PNG?raw=true">
 <br />
 <br />For Disks, select Standard SSD to avoid extra charges.
 <br />
@@ -117,7 +117,7 @@ Be sure to type the correct address space that matches your Virtual Network, and
 <br />
 <br /><strong>k.) <em>sudo docker start [container-name or container-id]</em></strong>
 <br />
-<br /><strong>l.) <em>sudo docker exec -it [container-name] bash</em>
+<br /><strong>l.) <em>sudo docker exec -it [container-name] bash</em></strong>
 <br />
 <br />The command <em>sudo docker exec -it [container] bash</em> connects you to a new bash instance of the container. 
 With <em>exec</em>, you can have multiple terminals open without affecting that instance, as opposed to using <em>sudo docker attach [container]</em>.  
@@ -169,7 +169,7 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br />Repeat steps <strong>a-c</strong> for all Virtual Machines intended to be used as webservers.
 <br />
-<br /><strong>d.) 
+<br /><strong>d.) </strong>
 <br />
 <br />
 <br />
