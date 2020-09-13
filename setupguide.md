@@ -10,13 +10,13 @@ but it is particularly vital in this case as it will interfere with package inst
 <br />
 <li>
 <ol>
-<li>1. Initial Azure Configurations</li>
-<li>2. Ansible Installation in Jumpbox</li>
-<li>3. Preparing Virtual Machines for DVWA Containers</li>
-<li>4. Configuring and Executing Playbook to Launch DVWA in VMs</li>
-<li>5. Setting Up Load Balancer</li>
-<li>6. Preparing New Virtual Machine for ELK</li>
-<li>7. Configuring and Executing Playbooks to Launch ELK Stack</li>
-<li>8. Kibana and Server Maintenance</li>
+<li>Initial Azure Configurations</li>
+<li>Ansible Configuration in Jumpbox</li>
+<li>Preparing Virtual Machines for DVWA Containers</li>
+<li>Configuring and Executing Playbook to Launch DVWA in VMs</li>
+<li>Setting Up Load Balancer</li>
+<li>Preparing New Virtual Machine for ELK</li>
+<li>Configuring and Executing Playbooks to Launch ELK Stack</li>
+<li>Kibana and Server Maintenance</li>
 <br />
 

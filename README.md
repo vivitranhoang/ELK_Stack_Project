@@ -2,7 +2,7 @@
 UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 
 <p style="text-align: center;"><span style="text-decoration: underline;"><strong><h1>ELK Stack Deployment Report</h1></strong></span></p>
-<p style="margin-bottom: 0in; line-height: 100%;">If you are recreating a network consisting of virtual machines with ansible and ELK, please also refer to the <strong>Set-Up Guide </strong>for a step-by-step explanation, as well as possible troubleshooting solutions.<span style="font-weight: normal;"><br /></span></p>
+<p style="margin-bottom: 0in; line-height: 100%;">If you are recreating a network consisting of virtual machines with ansible and ELK, please also refer to the <strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md" target="_blank" rel="nofollow">Set-Up Guide</a> </strong>for a step-by-step explanation, as well as possible troubleshooting solutions.<span style="font-weight: normal;"><br /></span></p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 
 <p style="margin-bottom: 0in; line-height: 100%;">This document contains the following details:</p>
