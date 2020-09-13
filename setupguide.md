@@ -57,7 +57,7 @@ Keep in mind that SSH keys with passphrases may cause errors with playbooks in l
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/14.PNG?raw=true">
 <br />
-<br />For Disks, select Standard SSD to avoid extra charges.
+<br />For Disks, select Standard SSD to avoid possible extra charges.
 <br />
 <br />Nothing is required to be changed in regards to the VM's Networking, Management, or Tags. 
 Azure will issue a warning prior to finalizing the creation of the VM about the dangers of exposing the 22 port, but it will not stop the creation of the machine.
@@ -171,7 +171,7 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br />Additionally, you may want to change the SSH rule under Networking (only after the VM has been created) to only allow ssh connection from the jumpbox's ansible container. 
 <br />
-<br /><img src="27.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/27.PNG?raw=true">
 <br />
 <p align="center"><h2>Configuring and Executing Playbook to Launch DVWA in VMs</h2></p>
 <br />
@@ -187,27 +187,27 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br /><strong>d.) <em>nano /etc/ansible/hosts</em></strong>
 <br />
-<br /><img src="22.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/22.PNG?raw=true">
 <br />
 <br />In this <em>hosts</em> file, unhash the [webservers] line and add new lines consisting of your webserver VMs' private IP address followed by 
 <em>ansible_python_interpreter=/usr/bin/python3</em>. 
 <br />
-<br /><img src="23.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/23.PNG?raw=true">
 <br />
 <br />CTRL + O to save, CTRL + X to exit.
 <br />
 <br /><strong>e.) <em>nano /etc/ansible/ansible.cfg</em></strong>
 <br />
-<br /><img src="28.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/28.PNG?raw=true">
 <br />
 <br />Find #inventory     = /etc/ansible/hosts and unhash it. It should be on the first page of the file.
 <br />
-<br /><img src="25.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/25.PNG?raw=true">
 <br />
 <br />Locate #remote_user = root, unhash it, and change it to remote_user = azureuser, or the appropriate username for your VM. This selects the default user for the playbooks. 
 If you are having difficulty locating it, use CTRL + W and search "remote_user."
 <br />
-<br /><img src="29.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/29.PNG?raw=true">
 <br />
 <br />Locate #private_key_file, unhash, and change it to include your private key. Include its absolute path. 
 <br />
@@ -220,20 +220,20 @@ available in this repository. When running the playbook, you will need to be in 
 <br />
 <br /><strong>g.) <em>ansible-playbook dvwa-playbook.yml</em>
 <br />
-<br /><img src="30.PNG"> 
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/30.PNG?raw=true"> 
 <br />
 <br />The command runs the DVWA playbook, which installs docker and DVWA containers in the webserver VMs. This may take a few minutes. 
 Should there be any <strong>fatal</strong> errors, double check your path, your private key, the <em>ansible.cfg</em> file, the <em>hosts</em> file, the VMs through Azure (in case they have been stopped). 
 There are a multitude of factors which can cause errors, so be sure to pay close attention to what the errors are telling you. For example: 
 <br />
-<br /><img src="26.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/26.PNG?raw=true">
 <br />
 <br />The above shows a fatal output that tells us the VM is unreachable due to key permissions. There may be an error with the key when inputted into Azure, 
 the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to a password on the key file.
 <br />
 <br /><strong>g.) <em>ansible -m ping all</em>
 <br />
-<br /><img src="31.PNG"
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/31.PNG?raw=true"
 <br />
 <br />This command pings our containers to let us know if they are running properly.
 <br />
