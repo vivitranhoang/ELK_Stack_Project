@@ -37,10 +37,9 @@ More often than not the top search result will be the right resource. Click on t
 or click "Next: Tags >" to label the Resource Group for further organization (in the case there are multiple Resource Groups). 
 <br />
 <br />
-<p align="left"><strong>b.) Create a Corresponding Virtual Network</strong></p>
+<p align="left"><strong>b.) Create a Corresponding Virtual Network & Network Security Group</strong></p>
 <br />
-<br />Create a Virtual Network and place it in the Resource Group made in step a. No changes were made to the default settings.
-<br />
+<br />Create a Virtual Network and place it in the Resource Group made in step a. No changes were made to the default settings. Then create a Network Security Group for the network.
 <br />
 <br /><strong>c.) Create a "Jumpbox" Virtual Machine </strong>
 <br />
@@ -238,6 +237,7 @@ the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to
 <br />This command pings our containers to let us know if they are running properly.
 <br />
 <p align="center"><h2>Setting Up Load Balancer</h2></p>
+<br />
 <br />
 <br />
 <p align="center"><h2>Preparing New Virtual Machine for ELK</h2></p>
