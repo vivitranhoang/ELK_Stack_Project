@@ -19,38 +19,59 @@ but it is particularly vital in this case as it will interfere with package inst
 <li>Configuring and Executing Playbooks to Launch ELK Stack</li>
 <li>Kibana and Server Maintenance</li>
 <br />
-<p align="center">Initial Azure Configurations</p>
+<p align="center"><h2>1. Initial Azure Configurations</h2></p>
 <br />
 <p align="left">First, create a Resource Group and a corresponding Virtual Network so that the webservers and jumpbox virtual machines will have the same subnet. </p>
 <br />
-<p align="center">Ansible Configuration in Jumpbox</p>
+<p align="center"><h2>Ansible Configuration in Jumpbox</h2></p>
 <br />
-<p align="left"><strong>1. <em>sudo apt update && sudo apt upgrade</em></strong>
+<p align="left"><strong>a) <em>sudo apt update && sudo apt upgrade</em></strong>
 <br />As mentioned earlier, it is important to update & upgrade VMs so docker can be installed.
-<br /><strong>2. <em>sudo apt install docker.io</em></strong>
+<br /><strong>b) <em>sudo apt install docker.io</em></strong>
 <br />
-<br /><strong>3. 
+<br /><strong>c) <em>sudo systemctl start docker</em>
+<br />
+<br /><strong>d) <em>sudo docker pull cyberxsecurity/ansible</em>
+<br />
+<br /><strong>e) Create or upload daemon.json file
+<br />
+<br />Be sure to place this in the <em>/etc/docker</em> folder.
 <br />
 <br />
 <br />
 <br />
 <br />
+<br />
+<br />
+<br />f) <em>
+<br />
+<br />g)
+<br />
+<br />h)
+<br />
+<br />i)
+<br />
+<br />j)
+<br />
+<br />k)
+<br />
+<br />l)
 <br />
 <br />
 <br /></p>
-<p align="center">Preparing Virtual Machines for DVWA Containers</p>
+<p align="center"><h2>Preparing Virtual Machines for DVWA Containers</h2></p>
 <br />
 <br />
-<p align="center">Configuring and Executing Playbook to Launch DVWA in VMs</p>
+<p align="center"><h2>Configuring and Executing Playbook to Launch DVWA in VMs</h2></p>
 <br />
 <br />
-<p align="center">Setting Up Load Balancer</p>
+<p align="center"><h2>Setting Up Load Balancer</h2></p>
 <br />
 <br />
-<p align="center">Preparing New Virtual Machine for ELK</p>
+<p align="center"><h2>Preparing New Virtual Machine for ELK</h2></p>
 <br />
 <br />
-<p align="center">Configuring and Executing Playbooks to Launch ELK Stack</p>
+<p align="center"><h2>Configuring and Executing Playbooks to Launch ELK Stack</h2></p>
 <br />
 <br />
-<p align="center">Kibana and Server Maintenance</p>
+<p align="center"><h2>Kibana and Server Maintenance</h2></p>
