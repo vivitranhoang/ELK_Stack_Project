@@ -21,27 +21,43 @@ but it is particularly vital in this case as it will interfere with package inst
 <br />
 <p align="center"><h2>1. Initial Azure Configurations</h2></p>
 <br />
-<p align="left">First, create a Resource Group and a corresponding Virtual Network so that the webservers and jumpbox virtual machines will have the same subnet. </p>
+<p align="left"><strong>a.) Create a Resource Group and a corresponding Virtual Network</strong></p>
 <br />
-<p align="center"><h2>Ansible Configuration in Jumpbox</h2></p>
+<br />By having all or most of our resources in one Virtual Network, the webservers and jumpbox virtual machines will be a part of the same subnet. Having our resources in one Resource Group is simply good housekeeping and easier to manage.
 <br />
-<p align="left"><strong>a) <em>sudo apt update && sudo apt upgrade</em></strong>
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/11.PNG?raw=true">
+<br />
+<br />Simply type in the type of resource you would like to create -- for example, "resource group" -- in the search bar. More often than not the top search result will be the right resource. Simply click on the link and then click "Create."
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/10.PNG?raw=true">
+<br /> 
+<br />Simply 
+<br />
+<br /><strong>b.) 
+<br />
+<br />
+<br />
+<p align="center"><h2>2. Ansible Configuration in Jumpbox</h2></p>
+<br />
+<p align="left"><strong>a.) <em>sudo apt update && sudo apt upgrade</em></strong>
+<br />
 <br />As mentioned earlier, it is important to update & upgrade VMs so docker can be installed.
-<br /><strong>b) <em>sudo apt install docker.io</em></strong>
 <br />
-<br /><strong>c) <em>sudo systemctl start docker</em>
+<br /><strong>b.) <em>sudo apt install docker.io</em></strong>
 <br />
-<br /><strong>d) <em>sudo docker pull cyberxsecurity/ansible</em>
+<br /><strong>c.) <em>sudo systemctl start docker</em>
 <br />
-<br /><strong>e) Create or upload daemon.json file
+<br />
+<br /><strong>d.) <em>sudo docker pull cyberxsecurity/ansible</em>
+<br />
+<br />
+<br />
+<br /><strong>e.) Create or upload daemon.json file
 <br />
 <br />Be sure to place this in the <em>/etc/docker</em> folder.
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
+
 <br />
 <br />f) <em>
 <br />
