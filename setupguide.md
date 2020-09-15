@@ -11,13 +11,13 @@ but it is particularly vital in this case as it will interfere with package inst
 <li>
 <ol>
 <li><a href="#initial-azure-config">Initial Azure Configurations</a></li>
-<li>Ansible Configuration in Jumpbox</li>
-<li>Creating New Virtual Machines for DVWA Containers</li>
-<li>Configuring and Executing Playbook to Launch DVWA in VMs</li>
-<li>Setting Up Load Balancer</li>
-<li>Preparing New Virtual Machine for ELK</li>
-<li>Configuring and Executing Playbooks to Launch ELK Stack</li>
-<li>Kibana and Server Maintenance</li>
+<li><a href="#ansible-config-jumpbox">Ansible Configuration in Jumpbox</a></li>
+<li><a href="#creating-dvwa-vms">Creating New Virtual Machines for DVWA Containers</a></li>
+<li><a href="#dvwa-playbook">Configuring and Executing Playbook to Launch DVWA in VMs</a></li>
+<li><a href="#lb-setup">Setting Up Load Balancer</a></li>
+<li><a href="#elk-vm">Preparing New Virtual Machine for ELK</a></li>
+<li><a href="#elk-playbook">Configuring and Executing Playbooks to Launch ELK Stack</a></li>
+<li><a href="#kibana">Kibana and Server Maintenance</a></li>
 <br />
 <p align="center"><h2><a id="initial-azure-config">1. Initial Azure Configurations</a></h2></p>
 <br />
@@ -62,7 +62,7 @@ Keep in mind that SSH keys with passphrases may cause errors with playbooks in l
 Azure will issue a warning prior to finalizing the creation of the VM about the dangers of exposing the 22 port, but it will not stop the creation of the machine.
 <br />
 <br /> 
-<p align="center"><h2>2. Ansible Configuration in Jumpbox Virtual Machine</h2></p>
+<p align="center"><h2><a id="ansible-config-jumpbox">2. Ansible Configuration in Jumpbox Virtual Machine</a></h2></p>
 <br /><em>ssh</em> into the Jumpbox from the folder in your local machine containing the public key, 
 with the command <em>ssh -i [private-key] azureuser@[VM public IP address]</em>. Azure also has a Key Vault service for an additional cost, 
 but for this exercise we will be utilizing our own keys.
@@ -152,7 +152,7 @@ Remember that if you restart the docker service you will have to start the conta
 as having a password may result in fatal errors when running the playbooks in later steps 
 (although it may be fixed by adding additional syntax and such to the scripts, doing so could lead to even more errors and troubleshooting).
 <br />
-<p align="center"><h2>2. Creating New Virtual Machines for DVWA Containers</h2></p>
+<p align="center"><h2><a id="creating-dvwa-vms">2. Creating New Virtual Machines for DVWA Containers</a></h2></p>
 <br />Go back to the Azure portal and create new Virtual Machines which will act as our vulnerable webservers. 
 The steps should be similar to the creation of the Jumpbox VM, save two steps:
 <br />
@@ -173,7 +173,7 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/27.PNG?raw=true">
 <br />
-<p align="center"><h2>Configuring and Executing Playbook to Launch DVWA in VMs</h2></p>
+<p align="center"><h2><a id="dvwa-playbook">Configuring and Executing Playbook to Launch DVWA in VMs</a></h2></p>
 <br /><strong>a.) <em>ssh</em> into the new Virtual Machine(s)</strong>
 <br />
 <br />From your ansible container, ssh into your newly created VM.
@@ -237,7 +237,7 @@ the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to
 <br />This command pings our containers to let us know if they are running properly. Alternatively, you can <em>ssh</em> into the webservers and check using the <em>sudo docker ps</em> command. 
 If the containers are not up, double check with <em>sudo docker container list -a</em> and start the container.
 <br />
-<p align="center"><h2>Setting Up Load Balancer</h2></p>
+<p align="center"><h2><a id="lb-setup">Setting Up Load Balancer</a></h2></p>
 <br />In Azure, create a Load Balancer associated with the same Resource Group.
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/32.PNG?raw=true">
@@ -267,10 +267,10 @@ It may help exchanges and requests run more smoothly.
 <br />Test your DVWA application by  entering your Load Balancer's front-end IP address in your browser. It should look like the above image. If not, 
 try adding a networking rule allowing traffic from any source to the destination of your Virtual Network through port 80 on each individual VM that is acting as a webserver.
 <br />
-<p align="center"><h2>Preparing New Virtual Machine for ELK</h2></p>
+<p align="center"><h2><a id="elk-vm">Preparing New Virtual Machine for ELK</a></h2></p>
 <br />Create a new virtual machine in a similar fashion to your jumpbox. 
 <br />
-<p align="center"><h2>Configuring and Executing Playbooks to Launch ELK Stack</h2></p>
+<p align="center"><h2><a id="elk-playbook">Configuring and Executing Playbooks to Launch ELK Stack</a></h2></p>
 <br />
 <br />
-<p align="center"><h2>Kibana and Server Maintenance</h2></p>
+<p align="center"><h2><a id="kibana">Kibana and Server Maintenance</a></h2></p>
