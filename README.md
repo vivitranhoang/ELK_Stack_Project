@@ -8,21 +8,20 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 
 <p style="margin-bottom: 0in; line-height: 100%;">This document contains the following details:</p>
 <ol>
-<li style="margin-bottom: 0in; line-height: 100%;">Network Diagram</li>
-<li style="margin-bottom: 0in; line-height: 100%;">Important Files</li>
-<li style="margin-bottom: 0in; line-height: 100%;">Description of the Topology</li>
-<li style="margin-bottom: 0in; line-height: 100%;">Access Policies</li>
-<li style="margin-bottom: 0in; line-height: 100%;">ELK Configuration</li>
-<li style="margin-bottom: 0in; line-height: 100%;">Beats in Use</li>
-<li style="margin-bottom: 0in; line-height: 100%;">Machines Being Monitored</li>
+<li style="margin-bottom: 0in; line-height: 100%;"><a href="#network-diagram">Network Diagram</a></li>
+<li style="margin-bottom: 0in; line-height: 100%;"><a href="#important-files">Important Files</a></li>
+<li style="margin-bottom: 0in; line-height: 100%;"><a href="#topology">Description of the Topology</a></li>
+<li style="margin-bottom: 0in; line-height: 100%;"><a href="#access-policies">Access Policies</a></li>
+<li style="margin-bottom: 0in; line-height: 100%;"><a href="#elk-config">ELK Configuration</a></li>
+<li style="margin-bottom: 0in; line-height: 100%;"><a href="#beats">Beats in Use</a></li>
 </ol>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center">&nbsp;</p>
 <br />
-<p style="margin-bottom: 0in; line-height: 100%;" align="center"><h2>1. Network Diagram</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%;" align="center"><h2><a id="network-diagram">1. Network Diagram</a></h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/ELK-diagram.png?raw=true" alt="" /></p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2>2. Important Files</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="important-files">2. Important Files</a></h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;">The files available in this repository have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above, or, alternatively, select portions of these files may be used to install only certain pieces of it, such as Filebeat. However, there are also a few files already present in the machine once the appropriate containers are made, and some changes are necessary for successful deployment. Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md"><strong>Set-Up Guide</strong></a> for more details.</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
@@ -110,7 +109,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tbody>
 </table>
 <p style="margin-bottom: 0in; line-height: 100%;"><br /> </p>
-<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2>3. Description of the Topology</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="topology">3. Description of the Topology</a></h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;"><br /> The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application. By utilizing one virtual machine as the "jumpbox," the containers in other VMs can be easily modified if needed without having to login and go through each VM or container individually. Automated and simplified maintenance is key.<br /> <br /> Load balancing ensures that the application will be highly efficient, in addition to keeping traffic in the network running smoothly. By distributing HTTP traffic between webservers, the webservers and the network will not be overwhelmed by hundreds or even thousands of user requests; this is why load balancers are so crucial in cyber security, as they not only help in applications running smoothly, but also help prevent attacks such as DoS attacks.<br /><br /> By intergrating an ELK server and using applications such as Filebeat, the DVWA application and webservers can be easily monitored for further analysis, which will be useful in mitigating or spotting an attack.<br /> <br /> The configuration details of each machine may be found below. When recreating a similar network, the number of virtual machines holding the DVWA containers is up to the creator's discretion--however, it may be necessary to change the virtual memory size of the ELK container accordingly to keep up with the extra resources being monitored.<br />&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <table width="100%" cellspacing="0" cellpadding="4">
@@ -200,7 +199,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tbody>
 </table>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2>4. Access Policies</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="access-policies">4. Access Policies</a></h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;"><br /> <br />The machines on the internal network are not exposed to the public Internet. Our webservers can only be accessed through the public IP address of our load balancer. It may be necessary to reconfigure the Network Security Group settings to allow for HTTP traffic for access.<br /> <br />The webservers and ELK server can be accessed from the jumpbox VM via port 22 and SSH keys, though it may be necessary to create an inbound rule in their Security Group Settings. However, whereas the webservers's DVWA application is accessed via port 80 of the load balancer's public IP address, the ELK server's Kibana application can be accessed via port 5601 through its own public IP address (subject to change if not reserved). Through Kibana's GUI in the browser, logs can be easily monitored in a readable format.<br /> <br /> A summary of the access policies in place can be found in the table below.</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <table width="100%" cellspacing="0" cellpadding="4">
@@ -272,7 +271,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tbody>
 </table>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><br /><h2>5. ELK Configuration</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><br /><h2><a id="elk-config">5. ELK Configuration</a></h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;"><br /> Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which limits the possibility of human error. However, it should be noted that the syntax or commands within configuration files and playbooks may need to be changed to better suit particular virtual machines or needs. For example, the command&nbsp;<em><strong>curl</strong></em> in the file <em>filebeat-playbook</em><em>.yml </em>may need to be changed from to <em><strong>wget</strong></em>. <br /> <br /> The <em>install-elk.yml </em>playbook implements the following tasks:</p>
 <ol>
 <li style="margin-bottom: 0in; line-height: 100%;">Installs docker.io - It references the IP address listed under [elk] in ansible's <em>hosts</em> file to install docker on the target VM.</li>
@@ -282,7 +281,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <li style="margin-bottom: 0in; line-height: 100%;">Downloads and launches web container - Downloads and launches the ELK container, and lists the ports needed to access said container/application.</li>
 </ol>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2> 6. Beats in Use</h2></p>
+<p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="beats">6. Beats in Use</a></h2></p>
 <p style="margin-bottom: 0in; line-height: 100%;">This ELK server is configured to monitor "Red Team VM" (10.10.0.5) and "Blue Team VM" (10.10.0.6); both VMs have Filebeat installed in order to send syslogs and auditd logs to Kibana for easy monitoring, but by simply editing or creating new playbooks, more modules (such as kafka or apache) or shippers (such as Metricbeat) can be installed to monitor other types of logs or data. Below are examples of how Kibana will look as it monitors a webserver.<br /> <br /><br /></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/06.PNG?raw=true" alt="Syslog monitoring through Filebeat and Kibana" /></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/07.PNG?raw=true" alt="Auditd monitoring through Filebeat and Kibana" /></p>
