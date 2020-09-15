@@ -237,7 +237,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">&nbsp;Blue Team VM</p>
+<p align="center">&nbsp;Target-Two VM</p>
 </td>
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
 <p align="center">10.10.0.6</p>
@@ -282,6 +282,6 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </ol>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="beats">6. Beats in Use</a></h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;">This ELK server is configured to monitor "Red Team VM" (10.10.0.5) and "Blue Team VM" (10.10.0.6); both VMs have Filebeat installed in order to send syslogs and auditd logs to Kibana for easy monitoring, but by simply editing or creating new playbooks, more modules (such as kafka or apache) or shippers (such as Metricbeat) can be installed to monitor other types of logs or data. Below are examples of how Kibana will look as it monitors a webserver.<br /> <br /><br /></p>
+<p style="margin-bottom: 0in; line-height: 100%;">This ELK server is configured to monitor "Target-One VM" (10.10.0.5) and "Target-Two VM" (10.10.0.6); both VMs have Filebeat installed in order to send syslogs and auditd logs to Kibana for easy monitoring, but by simply editing or creating new playbooks, more modules (such as kafka or apache) or shippers (such as Metricbeat) can be installed to monitor other types of logs or data. Below are examples of how Kibana will look as it monitors a webserver.<br /> <br /><br /></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/06.PNG?raw=true" alt="Syslog monitoring through Filebeat and Kibana" /></p>
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/07.PNG?raw=true" alt="Auditd monitoring through Filebeat and Kibana" /></p>
