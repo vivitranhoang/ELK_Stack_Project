@@ -234,14 +234,43 @@ the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/31.PNG?raw=true"
 <br />
-<br />This command pings our containers to let us know if they are running properly.
+<br />This command pings our containers to let us know if they are running properly. Alternatively, you can <em>ssh</em> into the webservers and check using the <em>sudo docker ps</em> command. 
+If the containers are not up, double check with <em>sudo docker container list -a</em> and start the container.
 <br />
 <p align="center"><h2>Setting Up Load Balancer</h2></p>
 <br />
+<br />In Azure, create a Load Balancer associated with the same Resource Group.
 <br />
+<br /><img src="32.PNG">
+<br />
+<br />Select "Standard" for SKU, and "Zone-redundant" for Availablity zone. Review and create.
+<br />
+<br /><img src="33.PNG">
+<br />
+<br />Go to the newly created resource, then to Backend Pools, and add the virtual machines containing the DVWA containers.
+<br />
+<br /><img src="34.PNG">
+<br />
+<br />Under Health Probes, add a new HTTP protocol health probe for port 80.
+<br />
+<br /><img src="35.PNG">
+<br />
+<br />Add a load balancing rule that utilizes the newly made health probe. 
+For Session Persistence, select "Client IP and protocol" if you wish users to be able to retain their cache when visiting the site. 
+It may help exchanges and requests run more smoothly. 
+<br />
+<br /><img src="36.PNG">
+<br />
+<br />Under the corresponding Virtual Network's Security Group, add a new rule that allows traffic from any source to your Virtual Network, through port 80.
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/03.PNG?raw=true">
+<br />
+<br />Test your DVWA application by  entering your Load Balancer's front-end IP address in your browser. It should look like the above image. If not, 
+try adding a networking rule allowing traffic from any source to the destination of your Virtual Network through port 80 on each individual VM that is acting as a webserver.
 <br />
 <p align="center"><h2>Preparing New Virtual Machine for ELK</h2></p>
 <br />
+<br />Create a new virtual machine in a similar fashion to your jumpbox. 
 <br />
 <p align="center"><h2>Configuring and Executing Playbooks to Launch ELK Stack</h2></p>
 <br />
