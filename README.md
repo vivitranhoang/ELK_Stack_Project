@@ -18,7 +18,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <p style="margin-bottom: 0in; line-height: 100%;" align="center">&nbsp;</p>
 <br />
 <p style="margin-bottom: 0in; line-height: 100%;" align="center"><h2><a id="network-diagram">1. Network Diagram</a></h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/ELK-diagram.png?raw=true" alt="" /></p>
+<p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/NetworkDiagram.png?raw=true" alt="" /></p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
 <p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="important-files">2. Important Files</a></h2></p>
@@ -144,7 +144,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">&nbsp;Red Team VM</p>
+<p align="center">&nbsp;Target-One VM</p>
 </td>
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
 <p align="center">&nbsp;DVWA Webserver</p>
@@ -156,7 +156,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">&nbsp;Blue Team VM</p>
+<p align="center">&nbsp;Target-Two VM</p>
 </td>
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
 <p align="center">DVWA Webserver</p>
@@ -228,7 +228,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
-<p align="center">&nbsp;Red Team VM</p>
+<p align="center">&nbsp;Target-One VM</p>
 </td>
 <td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
 <p align="center">&nbsp;10.10.0.5</p>
