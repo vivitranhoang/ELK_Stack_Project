@@ -241,27 +241,27 @@ If the containers are not up, double check with <em>sudo docker container list -
 <br />
 <br />In Azure, create a Load Balancer associated with the same Resource Group.
 <br />
-<br /><img src="32.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/32.PNG?raw=true">
 <br />
 <br />Select "Standard" for SKU, and "Zone-redundant" for Availablity zone. Review and create.
 <br />
-<br /><img src="33.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/33.PNG?raw=true">
 <br />
 <br />Go to the newly created resource, then to Backend Pools, and add the virtual machines containing the DVWA containers.
 <br />
-<br /><img src="34.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/34.PNG?raw=true">
 <br />
-<br />Under Health Probes, add a new HTTP protocol health probe for port 80.
+<br />Under Health Probes, add a new TCP health probe for port 80.
 <br />
-<br /><img src="35.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/35.PNG?raw=true">
 <br />
 <br />Add a load balancing rule that utilizes the newly made health probe. 
 For Session Persistence, select "Client IP and protocol" if you wish users to be able to retain their cache when visiting the site. 
 It may help exchanges and requests run more smoothly. 
 <br />
-<br /><img src="36.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/37.PNG?raw=true">
 <br />
-<br />Under the corresponding Virtual Network's Security Group, add a new rule that allows traffic from any source to your Virtual Network, through port 80.
+<br />Under the corresponding Virtual Network's Security Group, add a new rule that allows traffic from any source to VirtualNetwork, through port 80.
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/03.PNG?raw=true">
 <br />
