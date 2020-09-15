@@ -10,7 +10,7 @@ but it is particularly vital in this case as it will interfere with package inst
 <br />
 <li>
 <ol>
-<li><a href="#initial-azure-config"Initial Azure Configurations</a></li>
+<li><a href="#initial-azure-config">Initial Azure Configurations</a></li>
 <li>Ansible Configuration in Jumpbox</li>
 <li>Creating New Virtual Machines for DVWA Containers</li>
 <li>Configuring and Executing Playbook to Launch DVWA in VMs</li>
