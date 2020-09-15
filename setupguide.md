@@ -10,7 +10,7 @@ but it is particularly vital in this case as it will interfere with package inst
 <br />
 <li>
 <ol>
-<li>Initial Azure Configurations</li>
+<li><a href="#initial-azure-config"Initial Azure Configurations</a></li>
 <li>Ansible Configuration in Jumpbox</li>
 <li>Creating New Virtual Machines for DVWA Containers</li>
 <li>Configuring and Executing Playbook to Launch DVWA in VMs</li>
@@ -19,7 +19,7 @@ but it is particularly vital in this case as it will interfere with package inst
 <li>Configuring and Executing Playbooks to Launch ELK Stack</li>
 <li>Kibana and Server Maintenance</li>
 <br />
-<p align="center"><h2>1. Initial Azure Configurations</h2></p>
+<p align="center"><h2><a id="initial-azure-config">1. Initial Azure Configurations</a></h2></p>
 <br />
 <p align="left"><strong>a.) Create a Resource Group</strong></p>
 <br />By having all or most of our resources in one Virtual Network, the webservers and jumpbox virtual machines will be a part of the same subnet. 
@@ -66,6 +66,7 @@ Azure will issue a warning prior to finalizing the creation of the VM about the 
 <br /><em>ssh</em> into the Jumpbox from the folder in your local machine containing the public key, 
 with the command <em>ssh -i [private-key] azureuser@[VM public IP address]</em>. Azure also has a Key Vault service for an additional cost, 
 but for this exercise we will be utilizing our own keys.
+<br />
 <br />
 <p align="left"><strong>a.) <em>sudo apt update && sudo apt upgrade</em></strong>
 <br />
@@ -173,7 +174,6 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/27.PNG?raw=true">
 <br />
 <p align="center"><h2>Configuring and Executing Playbook to Launch DVWA in VMs</h2></p>
-<br />
 <br /><strong>a.) <em>ssh</em> into the new Virtual Machine(s)</strong>
 <br />
 <br />From your ansible container, ssh into your newly created VM.
@@ -238,7 +238,6 @@ the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to
 If the containers are not up, double check with <em>sudo docker container list -a</em> and start the container.
 <br />
 <p align="center"><h2>Setting Up Load Balancer</h2></p>
-<br />
 <br />In Azure, create a Load Balancer associated with the same Resource Group.
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/32.PNG?raw=true">
@@ -269,7 +268,6 @@ It may help exchanges and requests run more smoothly.
 try adding a networking rule allowing traffic from any source to the destination of your Virtual Network through port 80 on each individual VM that is acting as a webserver.
 <br />
 <p align="center"><h2>Preparing New Virtual Machine for ELK</h2></p>
-<br />
 <br />Create a new virtual machine in a similar fashion to your jumpbox. 
 <br />
 <p align="center"><h2>Configuring and Executing Playbooks to Launch ELK Stack</h2></p>
