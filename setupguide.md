@@ -270,7 +270,26 @@ try adding a networking rule allowing traffic from any source to the destination
 <p align="center"><h2><a id="elk-vm">Preparing New Virtual Machine for ELK</a></h2></p>
 <br />Create a new virtual machine in a similar fashion to your jumpbox. 
 <br />
+<br /><img src="">
+<br />
+<br />Although it is in the same resource group, you may place it in a new Virtual Network. If, be sure to connect the two networks together through Peering. 
+<br />
 <p align="center"><h2><a id="elk-playbook">Configuring and Executing Playbooks to Launch ELK Stack</a></h2></p>
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <p align="center"><h2><a id="kibana">Kibana and Server Maintenance</a></h2></p>
+<br />
+<br />
+<br />

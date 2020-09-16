@@ -56,7 +56,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
 <p><strong>&nbsp;</strong></p>
-<p><strong><em>daemon.json</em></strong></p>
+<p><strong><em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/daemon.json">daemon.json</a></em></strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">&nbsp;
 <p style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%;" align="left">By putting this in the <em>/etc/docker</em> folder inside of the jumpbox VM, the IP address of the ansible container will be changed so that it will match the subnet of our virtual network.</p>
@@ -65,7 +65,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
 <p><strong>&nbsp;</strong></p>
-<p><strong><em>dvwa-playbook.yml</em></strong></p>
+<p><strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/dvwa-playbook.yml"><em>dvwa-playbook.yml</em></a></strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
 <p style="margin-bottom: 0in; line-height: 100%;">&nbsp;<span style="font-weight: normal;">The file </span><em><span style="font-weight: normal;">dvwa-playbook.yml </span></em><span style="font-style: normal;"><span style="font-weight: normal;">is used, from the ansible container in the jumpbox, to launch a DVWA container in the virtual machines being used as webservers. Please be sure to include the appropriate IP address under the [webservers] line if another machine/container is being made.</span></span></p>
@@ -74,7 +74,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
 <p><strong>&nbsp;</strong></p>
-<p><strong><em>install-elk.yml</em></strong></p>
+<p><strong><em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/install-elk.yml">install-elk.yml</a></em></strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">&nbsp;
 <p style="margin-bottom: 0in; line-height: 100%;" align="left"><span style="font-style: normal;"><span style="font-weight: normal;">The file </span></span><em><span style="font-weight: normal;">install-elk.yml </span></em><span style="font-style: normal;"><span style="font-weight: normal;">is used, from the ansible container in the jumpbox, to install and launch ELK in the ELK </span></span><span style="font-style: normal;"><span style="font-weight: normal;">VM</span></span><span style="font-style: normal;"><span style="font-weight: normal;">. </span></span><span style="font-style: normal;"><span style="font-weight: normal;">Take special note of the published ports at the bottom of the files&mdash;by adding &ldquo;:5601&rdquo; to the public IP address of the ELK VM, the user can access Kibana, assuming everything is installed correctly.</span></span></p>
@@ -82,7 +82,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </tr>
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
-<p><strong>&nbsp;<em>/etc/ansible/files/filebeat-config.yml</em></strong></p>
+<p><strong>&nbsp;<em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-configuration.yml">/etc/ansible/files/filebeat-config.yml</a></em></strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
 <p>&nbsp;<span style="font-style: normal;"><span style="font-weight: normal;">This </span></span><span style="font-style: normal;"><span style="font-weight: normal;">is the configuration file for Filebeat. Please take note of the path of this file -- /</span></span><span style="font-style: normal;"><span style="font-weight: normal;">etc/ansible/files/filebeat-config.yml &ndash; </span></span><span style="font-style: normal;"><span style="font-weight: normal;">as it is referenced to inside of the </span></span><em><span style="font-weight: normal;">filebeat-playbook.yml</span></em><span style="font-style: normal;"><span style="font-weight: normal;"> file. It is necessary to create the <em>files </em>folder prior to downloading this file.</span></span></p>
@@ -91,7 +91,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
 <p>&nbsp;</p>
-<p><em><strong>filebeat-playbook.yml</strong></em></p>
+<p><em><strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-playbook.yml">filebeat-playbook.yml</a></strong></em></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">&nbsp;
 <p style="margin-bottom: 0in; line-height: 100%;" align="left"><span style="font-style: normal;">This is the playbook that will install and launch the Filebeat shipper in the vulnerable webserver. Filebeat will send logs to ELK for analysis.<br /></span></p>
@@ -100,7 +100,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <tr style="height: 35px;" valign="top">
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
 <br />
-<p style="text-align: left;"><em><strong>startdocker.sh</strong> </em></p>
+<p style="text-align: left;"><em><strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/startdocker.sh">startdocker.sh</a></strong> </em></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
 <p style="text-align: left;">&nbsp;This is a script that will be referenced in the crontab in order to have our container and playbooks run upon startup. It may take a minute or two for the playbooks to finish running, so Kibana will not start right away in the browser.</p>
