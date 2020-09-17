@@ -308,20 +308,23 @@ does not affect the outcome as long as you remember to execute <em>ansible-playb
 <br />
 <p align="center"><h2><a id="filebeatcon">Filebeat Configuration and Installation</a></h2></p>
 <br />
+<br /><strong>a.) Create or download filebeat-config.yml and filebeat-playbook.yml</strong>
+<br />
+<br />Download, create, or copy the <em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-config.yml">filebeat-config.yml</a></em> file and the 
+<em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-playbook.yml">filebeat-playbook.yml</a></em> file from the repository. 
+Keep in mind that <em>filebeat-playbook.yml</em> references to <em>filebeat-config.yml</em> and its absolute path (/etc/ansible/file/filebeat-config.yml). Therefore, you must take precaution to either save/create the 
+<em>filebeat-config.yml</em> in the same path (making a <em>files</em> directory before downloading/creating), or you must change the path inside of the playbook.
 <br />
 <br />
+<br /><img src="     ">
 <br />
+<br /><strong>b.) <em>nano filebeat-config.yml</em></strong>
 <br />
+<br /><img src="     ">
 <br />
+<br /><img src="     ">
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<br />Using CTRL + W, find "output.elastic" and replace the value for .... Search "setup.kibana" and replace the value.
 <br />
 <br />
 <br />
