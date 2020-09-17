@@ -17,7 +17,8 @@ but it is particularly vital in this case as it will interfere with package inst
 <li><a href="#lb-setup">Setting Up Load Balancer</a></li>
 <li><a href="#elk-vm">Preparing New Virtual Machine for ELK</a></li>
 <li><a href="#elk-playbook">Configuring and Executing Playbooks to Launch ELK Stack</a></li>
-<li><a href="#kibana">Kibana and Server Maintenance</a></li>
+<li><a href="#filebeatcon">Filebeat Configuration and Installation</a></li>
+<li><a href="#after">Afterword</a></li>
 <br />
 <p align="center"><h2><a id="initial-azure-config">1. Initial Azure Configurations</a></h2></p>
 <br />
@@ -189,7 +190,7 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/22.PNG?raw=true">
 <br />
 <br />In this <em>hosts</em> file, unhash the [webservers] line and add new lines consisting of your webserver VMs' private IP address followed by 
-<em>ansible_python_interpreter=/usr/bin/python3 ansible_private_key_file=[/path/to/private/key]</em>.
+<em>ansible_python_interpreter=/usr/bin/python3 ansible_private_key_file=[/path/to/private/key]</em>. 
 <br />
 <br /><img src=https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/23.PNG?raw=true">
 <br />
@@ -221,8 +222,9 @@ There are a multitude of factors which can cause errors, so be sure to pay close
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/26.PNG?raw=true">
 <br />
-<br />The above shows a fatal output that tells us the VM is unreachable due to key permissions. There may be an error with the key when inputted into Azure, 
-the path of the key in the <em>ansible.cfg</em> file, or perhaps an error due to a password on the key file.
+<br />The above shows a fatal output that tells us the VM is unreachable due to key permissions. There may be an error with the key when inputted into Azure, a network security group rule conflict, 
+the path of the key in the <em>hosts</em> file (or the <em>ansible.cfg</em> file, if you made changes and placed the key path there), 
+or perhaps an error due to a password on the key.
 <br />
 <br /><strong>g.) <em>ansible -m ping all</em></strong>
 <br />
@@ -270,6 +272,8 @@ We will be utilizing that IP address to access the Kibana application's GUI thro
 <br />Although it must be in the same resource group, you may place it in a new Virtual Network according to your preferences. 
 If so, be sure to connect the two networks together through Peering. 
 <br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/42.PNG?raw=true">
+<br />
 <br />Add a networking security inbound rule (under "Networking") to allow TCP connection through port 5601. 
 For security purposes it may be best to change the Source to your IP address.
 <br />
@@ -278,10 +282,10 @@ For security purposes it may be best to change the Source to your IP address.
 <br />
 <br /><strong>a.) <em>nano /etc/ansible/hosts</em></strong>
 <br />
-<br /><img src="40.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/40.PNG?raw=true">
 <br />
-<br />Edit the <em>hosts</em> file inside of the <em>/etc/ansible</em> directory to include the new virtual machine's internal IP address. 
-Write a new category <em>[elk]</em> underneath [webservers] so that the playbook can understand that the new VM will be the host server of the ELK container. 
+<br />Edit the <em>hosts</em> file inside of the <em>/etc/ansible</em> directory to include the new virtual machine's internal IP address, followed by <em>ansible_python_interpreter=/usr/bin/python3 ansible_private_key_file=/path/to/private/key</em>.  
+Write it under a new category <em>[elk]</em> below [webservers] so that the playbook can understand that the new VM will be the host server of the ELK container. 
 <br />
 <br /><strong>b.) <em>nano /etc/ansible/install-elk.yml</em></strong>
 <br />
@@ -290,19 +294,43 @@ does not affect the outcome as long as you remember to execute <em>ansible-playb
 <br />
 <br /><strong>c.) <em>ansible-playbook install-elk.yml</em></strong>
 <br />
-<br /><img src="41.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/41.PNG?raw=true">
 <br />
 <br />Run the playbook in the directory containing the <em>install-elk.yml</em> file.
 <br />
-<br /><strong>d.) Check Kibana in an internet browse</strong>
+<br /><strong>d.) Check Kibana in an internet browser</strong>
 <br />
-<br /><img src="43.PNG">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/43.PNG?raw=true">
 <br />
 <br />Open a new browser in your preferred internet browsing application and type in your ELK server's public IP address, followed by :5601 (e.g. 20.188.255.46:5601).
- If it is working properly, the address should automatically change to http://20.188.255.46:5601/app/kibana#/home and the browser will look similar to the image above. 
+ If it is working properly, the address should automatically change to http://[IP address]/app/kibana#/home and the browser will look similar to the image above. 
  If it is not connecting to Kibana, doublecheck the networking security inbound rules, the playbook file, or the configuration files.
 <br />
-<p align="center"><h2><a id="kibana">Kibana and Server Maintenance</a></h2></p>
+<p align="center"><h2><a id="filebeatcon">Filebeat Configuration and Installation</a></h2></p>
 <br />
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<p align="center"><h2><a id="#after">Afterword</a></p>
+<br />Congratulations on creating a webserver and monitoring it with Filebeat and Kibana! Utilizing these ideas, you can create other ELK servers with different types of modules.
