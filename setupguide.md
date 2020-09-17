@@ -189,9 +189,9 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/22.PNG?raw=true">
 <br />
 <br />In this <em>hosts</em> file, unhash the [webservers] line and add new lines consisting of your webserver VMs' private IP address followed by 
-<em>ansible_python_interpreter=/usr/bin/python3</em>. 
+<em>ansible_python_interpreter=/usr/bin/python3 ansible_private_key_file=[/path/to/private/key]</em>.
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/23.PNG?raw=true">
+<br /><img src=https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/23.PNG?raw=true">
 <br />
 <br />CTRL + O to save, CTRL + X to exit.
 <br />
@@ -205,12 +205,6 @@ The servers should only be publically accessed through the Load Balancer's IP ad
 <br />
 <br />Locate #remote_user = root, unhash it, and change it to remote_user = azureuser, or the appropriate username for your VM. This selects the default user for the playbooks. 
 If you are having difficulty locating it, use CTRL + W and search "remote_user."
-<br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/29.PNG?raw=true">
-<br />
-<br />Locate #private_key_file, unhash, and change it to include your private key. Include its absolute path. 
-<br />
-<br />Alternatively, you may try to find and unhash #host_key_checking = false, but is not recommended for security purposes. Save & exit.
 <br />
 <br /><strong>f.) <em>nano dvwa-playbook.yml</em></strong>
 <br />
@@ -268,26 +262,45 @@ It may help exchanges and requests run more smoothly.
 try adding a networking rule allowing traffic from any source to the destination of your Virtual Network through port 80 on each individual VM that is acting as a webserver.
 <br />
 <p align="center"><h2><a id="elk-vm">Preparing New Virtual Machine for ELK</a></h2></p>
-<br />Create a new virtual machine in a similar fashion to your jumpbox. 
+<br />Create a new virtual machine -- give it an ssh key from your ansible container, but unlike the DVWA servers, allow it to have a public IP address. 
+We will be utilizing that IP address to access the Kibana application's GUI through an internet browser.
 <br />
-<br /><img src="">
+<br />Do not forget to <strong>update & upgrade</strong> your new machine!
 <br />
-<br />Although it is in the same resource group, you may place it in a new Virtual Network. If, be sure to connect the two networks together through Peering. 
+<br />Although it must be in the same resource group, you may place it in a new Virtual Network according to your preferences. 
+If so, be sure to connect the two networks together through Peering. 
+<br />
+<br />Add a networking security inbound rule (under "Networking") to allow TCP connection through port 5601. 
+For security purposes it may be best to change the Source to your IP address.
 <br />
 <p align="center"><h2><a id="elk-playbook">Configuring and Executing Playbooks to Launch ELK Stack</a></h2></p>
+<br />Jump back into your ansible container inside of the Jumpbox virtual machine.
 <br />
+<br /><strong>a.) <em>nano /etc/ansible/hosts</em></strong>
 <br />
+<br /><img src="40.PNG">
 <br />
+<br />Edit the <em>hosts</em> file inside of the <em>/etc/ansible</em> directory to include the new virtual machine's internal IP address. 
+Write a new category <em>[elk]</em> underneath [webservers] so that the playbook can understand that the new VM will be the host server of the ELK container. 
 <br />
+<br /><strong>b.) <em>nano /etc/ansible/install-elk.yml</em></strong>
 <br />
+<br />Create or download/copy the <a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/install-elk.yml"><em>install-elk.yml</em></a> file. The file's path 
+does not affect the outcome as long as you remember to execute <em>ansible-playbook</em> in the same directory. 
 <br />
+<br /><strong>c.) <em>ansible-playbook install-elk.yml</em></strong>
 <br />
+<br /><img src="41.PNG">
 <br />
+<br />Run the playbook in the directory containing the <em>install-elk.yml</em> file.
 <br />
+<br /><strong>d.) Check Kibana in an internet browse</strong>
 <br />
+<br /><img src="43.PNG">
 <br />
-<br />
-<br />
+<br />Open a new browser in your preferred internet browsing application and type in your ELK server's public IP address, followed by :5601 (e.g. 20.188.255.46:5601).
+ If it is working properly, the address should automatically change to http://20.188.255.46:5601/app/kibana#/home and the browser will look similar to the image above. 
+ If it is not connecting to Kibana, doublecheck the networking security inbound rules, the playbook file, or the configuration files.
 <br />
 <p align="center"><h2><a id="kibana">Kibana and Server Maintenance</a></h2></p>
 <br />
