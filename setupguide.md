@@ -336,5 +336,12 @@ Keep in mind that <em>filebeat-playbook.yml</em> references to <em>filebeat-conf
 <br />
 <br />
 
-<p align="center"><h2><a id="#after">Afterword</a></p>
+<p align="center"><h2><a id="#after">Afterword & Troubleshooting</a></p>
 <br />Congratulations on creating a webserver and monitoring it with Filebeat and Kibana! Utilizing these ideas, you can create other ELK servers with different types of modules.
+
+<br />
+<br />
+<br />
+<br />
+<br />If you find that the container in your ELK server does not run or stops running even after using the <em>sudo docker start elk</em>, edit the <em>install-elk.yml</em> file to include 
+more memory and re-run the playbook.  
