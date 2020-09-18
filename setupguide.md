@@ -27,12 +27,12 @@ but it is particularly vital in this case as it will interfere with package inst
 Placing all resources in one Resource Group is simply good housekeeping and easier to manage. It is best to keep the names consist to avoid confusion
 (e.g. EXAMPLE-resource-group and EXAMPLE-vnet).
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/11.PNG?raw=true">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/11.PNG?raw=true" alt="Image of the Azure portal, on the page 'Resource Group.' There is a blue button with the word 'Create' on it. Clicking it will allow you to create a resource group.">
 <br />
 <br />Simply type in the type of resource intended to create -- for example, "resource group" -- in the search bar. 
 More often than not the top search result will be the right resource. Click on the link and then click "Create."
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/10.PNG?raw=true">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/10.PNG?raw=true" alt="This image shows an example of the 'Create a resource group' page. In the first box you will choose subscription, then your resource group name, then your preferred region.">>
 <br /> 
 <br /> It is necessary to enter a Resource Group name and to select a region. From there you may select "Reviwe + create" at the bottom of the page, 
 or click "Next: Tags >" to label the Resource Group for further organization (in the case there are multiple Resource Groups). 
@@ -44,7 +44,8 @@ or click "Next: Tags >" to label the Resource Group for further organization (in
 <br />
 <br /><strong>c.) Create a "Jumpbox" Virtual Machine </strong>
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/12.PNG?raw=true">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/12.PNG?raw=true" alt="Image displays the page to create a new virtual machine. Second box (first box is subscription, but it is not pictured): Resource group. Third: Virtual machine name. This should be some variation of Your Resource Group and Jumpbox. Fourth box: Region, preferably the same as your resource group. Fourth: Availability options: leave as default. Fifth: Image. Leave as default. Azure Spot instance - leave as default. Size: pick any appropriate size for your needs. 
+In this case we chose Standard_B2ms - 2 vcpus, 8GiB memory. Authentication type: SSH public key. Username: azureuser. SSH public key source: Use existing public key. SSH public key: paste the public key here.">
 <br />
 <br />Create a Virtual Machine and place it in the Resource Group made prior. This first VM is the jumpbox VM where ansible will be managed. 
 It should have a Private IP Address, which falls under the Virtual Network's address space, as well as a Public IP Address.
@@ -55,7 +56,7 @@ It may be necessary to select a larger size should there be more than 3 or 4 web
 <br />Because it is an Ubuntu and not a Windows OS, RDP is not available. In the examples, SSH public keys on local machines were used. 
 Keep in mind that SSH keys with passphrases may cause errors with playbooks in later steps.
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/14.PNG?raw=true">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/14.PNG?raw=true" alt="Image of the Disk category when making a virtual machine. For OS disk type, we chose Standard SSD.">
 <br />
 <br />For Disks, select Standard SSD to avoid possible extra charges.
 <br />
@@ -86,7 +87,7 @@ If the command fails, remove and install docker, and try again.
 <br />
 <br />This command pulls the latest version of an ansible image. The output should look like this:
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/15.PNG?raw=true">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/15.PNG?raw=true" alt="Image of how your terminal will look after running the sudo docker pull cyberxsecurity/ansible command.">
 <br />
 <br /><strong>e.) <em>sudo docker run -ti cyberxsecurity/ansible:latest bash</em></strong>
 <br />
@@ -96,7 +97,7 @@ If a command does not work, it may be because you are in the incorrect container
 <br />
 <br /><strong>f.) <em>ifconfig</em></strong>
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/17.PNG?raw=true">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/17.PNG?raw=true" alt="Image of output of the ifconfig command. Shows that the IP address does not match our Resource Group's Virtual Network's subnet.">
 <br />
 <br />As you can see, the IP address of this container does not fall within our Virtual Network's address pool. We will need to configure it with a .json file so that it does.
 <br />
@@ -106,7 +107,7 @@ If a command does not work, it may be because you are in the incorrect container
 <br />
 <br /><strong>h.) <em>sudo nano /etc/docker/daemon.json</em></strong>
 <br />
-<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/16.PNG?raw=true"
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/16.PNG?raw=true alt="Image of the contents of the daemon file.">
 <br />
 <br />Be sure to place the <em>daemon.json</em> file, which is available in this repository, in the <em>/etc/docker</em> folder. 
 Be sure to type the correct address space that matches your Virtual Network, and be mindful of spaces/tabs.
