@@ -332,7 +332,7 @@ Keep in mind that <em>filebeat-playbook.yml</em> references to <em>filebeat-conf
 <br />
 <br /><strong>b.) Create or download <em>filebeat-playbook.yml</em></strong>
 <br />
-<br /><img src="     ">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/48.PNG?raw=true" alt="Screenshot of the filebeat-playbook.yml file.">
 <br />
 <br />The default entry should be fine, but should there be errors in downloading the filebeat .deb file, it may help to change the curl command to wget.
 <br />
