@@ -365,7 +365,7 @@ If it is successful, then Filebeat should be sending log files to Kibana for mon
 It means Filebeat is working properly and is sending data from the DVWA servers to ELK. For more information, click on "System logs dashboard"!
 <br />
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/53.PNG?raw=true" alt="This is a screenshot of our Filebeat System ECS dashboard -- it shows some logs of our webserver machines, our filebeat module, and more.">
-<p align="center"><h2><a id="#after">Afterword & Troubleshooting</a></p></h2>
+<p align="center"><h2><a id="#after">Afterword & Troubleshooting</a></h2></p>
 <br />Congratulations on creating a webserver and monitoring it with Filebeat and Kibana! Utilizing these ideas, you can create other ELK servers with different types of modules.
 
 <br />
