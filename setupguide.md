@@ -18,6 +18,7 @@ but it is particularly vital in this case as it will interfere with package inst
 <li><a href="#elk-vm">Preparing New Virtual Machine for ELK</a></li>
 <li><a href="#elk-playbook">Configuring and Executing Playbooks to Launch ELK Stack</a></li>
 <li><a href="#filebeatcon">Filebeat Configuration and Installation</a></li>
+<li><a href="#monitoring">Adding and Monitoring Log Files through Kibana</a></li>
 <li><a href="#after">Afterword</a></li>
 <br />
 <p align="center"><h2><a id="initial-azure-config">1. Initial Azure Configurations</a></h2></p>
@@ -218,6 +219,7 @@ available in this repository. When running the playbook, you will need to be in 
 <br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/30.PNG?raw=true"> 
 <br />
 <br />The command runs the DVWA playbook, which installs docker and DVWA containers in the webserver VMs. This may take a few minutes. 
+[WARNING] does not mean the command or task failed -- if all tasks end in ok: [IP address] or changed [IP address], as shown above, it means the playbook as run successfully and a DVWA module should be launched inside your webservers.
 Should there be any <strong>fatal</strong> errors, double check your path, your private key, the <em>ansible.cfg</em> file, the <em>hosts</em> file, the VMs through Azure (in case they have been stopped). 
 There are a multitude of factors which can cause errors, so be sure to pay close attention to what the errors are telling you. For example: 
 <br />
@@ -309,31 +311,39 @@ does not affect the outcome as long as you remember to execute <em>ansible-playb
 <br />
 <p align="center"><h2><a id="filebeatcon">Filebeat Configuration and Installation</a></h2></p>
 <br />
-<br /><strong>a.) Create or download filebeat-config.yml and filebeat-playbook.yml</strong>
+<br /><strong>a.) Create or download <em>filebeat-config.yml</em></strong>
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/44.PNG?raw=true" alt="This is a screenshot of the first page of the filebeat-config.yml file.">
 <br />
 <br />Download, create, or copy the <em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-config.yml">filebeat-config.yml</a></em> file and the 
 <em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-playbook.yml">filebeat-playbook.yml</a></em> file from the repository. 
 Keep in mind that <em>filebeat-playbook.yml</em> references to <em>filebeat-config.yml</em> and its absolute path (/etc/ansible/file/filebeat-config.yml). Therefore, you must take precaution to either save/create the 
 <em>filebeat-config.yml</em> in the same path (making a <em>files</em> directory before downloading/creating), or you must change the path inside of the playbook.
 <br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/45.PNG?raw=true" alt="This is a screenshot of the portion of the filebeat-config.yml file that defines the ELK server host.">
+<br />
+<br />Using CTRL + w, search for "setup.kibana:" -- in the line below, replace the IP with the internal IP address of your ELK server, followed by :5601 (e.g. 10.3.0.7:5601).
+<br /> 
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/46.PNG?raw=true" alt="This is a screenshot of the portion of the filebeat-config.yml file that defines where the elasticsearch output will be sent to (the ELK server).">
+<br />
+<br />Using CTRL + w, search for "output.elasticsearch:" -- in the line starting with "hosts:" below, replace the IP address with your ELK server's internal IP address followed by :9200 (e.g. 10.3.0.7:9200).
+<br />
+<br />Save (CTRL + o) and exit (CTRL + x).
+<br />
+<br /><strong>b.) Create or download <em>filebeat-playbook.yml</em></strong>
 <br />
 <br /><img src="     ">
 <br />
-<br /><strong>b.) <em>nano filebeat-config.yml</em></strong>
+<br />The default entry should be fine, but should there be errors in downloading the filebeat .deb file, it may help to change the curl command to wget.
 <br />
-<br /><img src="     ">
+<br /><strong>c.) <em>ansible-playbook filebeat-playbook.yml</em></strong>
 <br />
-<br /><img src="     ">
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/47.PNG?raw=true" alt="This is a screenshot of the output of a successful filebeat playbook run.>
 <br />
-<br />Using CTRL + W, find "output.elastic" and replace the value for .... Search "setup.kibana" and replace the value.
+<br />Run the playbook with the command <em>ansible-playbook filebeat-playbook.yml</em>, making sure to be in the same directory as the playbook file. 
+If it is successful, then Filebeat should be sending log files to Kibana for monitoring. 
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<br /><p align="center"><h2><a id="#monitoring">Adding and Monitoring Log Files through Kibana</a></h2></p>
 <br />
 
 <p align="center"><h2><a id="#after">Afterword & Troubleshooting</a></p>
