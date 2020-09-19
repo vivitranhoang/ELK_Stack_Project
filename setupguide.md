@@ -345,7 +345,26 @@ If it is successful, then Filebeat should be sending log files to Kibana for mon
 <br />
 <br /><p align="center"><h2><a id="#monitoring">Adding and Monitoring Log Files through Kibana</a></h2></p>
 <br />
-
+<br />Now that we have run the filebeat playbook and have successfully launched filebeat modules, go back in your internet browser, and go to the Kibana homepage.
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/49.PNG?raw=true" alt="This is a screenshot of the web browser on Kibana's homepage. Near the center is an 'Add log data' button.">
+<br />
+<br />Click on "Add log data."
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/50.PNG?raw=true" alt="This is a screenshot of the various log data you can add to Kibana to keep track of. The second to last option on the bottom is 'System logs'.">
+<br />
+<br />Click on "System logs."
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/51.PNG?raw=true" alt="This is an image of a section on the 'Add System Logs' page. There is a button that says 'Check data' and 'System logs dashboard'.">
+<br />
+<br />Click on "Check data."
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/52.PNG?raw=true" alt="This is an image of how it should look after clicking 'Check data' if you have properly configured filebeat."
+<br />
+<br />If Filebeat is properly configured and launched, the result of clicking "Check data" should look similar to above--"Data successfully received from this module." 
+It means Filebeat is working properly and is sending data from the DVWA servers to ELK. For more information, click on "System logs dashboard"!
+<br />
+<br /><img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/images/53.PNG?raw=true" alt="This is a screenshot of our Filebeat System ECS dashboard -- it shows some logs of our webserver machines, our filebeat module, and more.">
 <p align="center"><h2><a id="#after">Afterword & Troubleshooting</a></p>
 <br />Congratulations on creating a webserver and monitoring it with Filebeat and Kibana! Utilizing these ideas, you can create other ELK servers with different types of modules.
 
