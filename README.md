@@ -113,18 +113,21 @@ Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Pro
 </table>
 <p style="margin-bottom: 0in; line-height: 100%;"><br /> </p>
 <p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="topology">3. Description of the Topology</a></h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;"><br /> The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application. By utilizing one virtual machine as the "jumpbox," the containers in other VMs can be easily modified if needed without having to login and go through each VM or container individually. Automated and simplified maintenance is key.<br /> <br /> Load balancing ensures that the application will be highly efficient, in addition to keeping traffic in the network running smoothly. By distributing HTTP traffic between webservers, the webservers and the network will not be overwhelmed by hundreds or even thousands of user requests; this is why load balancers are so crucial in cyber security, as they not only help in applications running smoothly, but also help prevent attacks such as DoS attacks.<br /><br /> By intergrating an ELK server and using applications such as Filebeat, the DVWA application and webservers can be easily monitored for further analysis, which will be useful in mitigating or spotting an attack.<br /> <br /> The configuration details of each machine may be found below. When recreating a similar network, the number of virtual machines holding the DVWA containers is up to the creator's discretion--however, it may be necessary to change the virtual memory size of the ELK container accordingly to keep up with the extra resources being monitored.<br />&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
+<p style="margin-bottom: 0in; line-height: 100%;"><br /> The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application. By utilizing one virtual machine as the "jumpbox," the containers in other VMs can be easily modified if needed without having to login and go through each VM or container individually. Automated and simplified maintenance is key.<br /> 
+<br /> Load balancing ensures that the application will be highly efficient, in addition to keeping traffic in the network running smoothly. By distributing HTTP traffic between webservers, the webservers and the network will not be overwhelmed by hundreds or even thousands of user requests; this is why load balancers are so crucial in cyber security, as they not only help in applications running smoothly, but also help prevent attacks such as DoS attacks.<br />
+<br /> By intergrating our ELK applications with DVWA and modules such as Filebeat, the webservers can be easily monitored for further analysis, which will be useful in mitigating or spotting an attack.<br /> 
+<br /> The details of each machine may be found below. When recreating a similar network, the number of virtual machines holding the DVWA containers is up to the creator's discretion--however, it may be necessary to change the virtual memory size of the ELK container accordingly to keep up with the extra resources being monitored.<br />&nbsp;</p>
+<br />It should be noted that in this example, the ELK server was placed in its own virtual network, and required peering between networks in order to work with the webservers. However, the ELK server would also work if it were placed within the same virtual network.
 <table width="100%" cellspacing="0" cellpadding="4">
 <tbody>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center"><strong>Name</strong></p>
 </td>
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center"><strong>Function</strong></p>
 </td>
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center"><strong>IP Address</strong></p>
 </td>
 <td style="border: 1px solid #000000; padding: 0.04in; height: 35px;" width="25%">
@@ -132,70 +135,70 @@ Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Pro
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">Jumpbox</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">Gateway</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">10.10.0.4</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">Linux</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Target-One VM</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;DVWA Webserver</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;10.10.0.5</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%"><p align="center">Linux</p></td>
+<td><p align="center">Linux</p></td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Target-Two VM</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">DVWA Webserver</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">10.10.0.6</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Linux</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Load Balancer</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">Balances traffic between webservers</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">40.91.81.104</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Linux</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;ELK Server VM</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">ELK Server</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;10.1.0.4</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Linux</p>
 </td>
 </tr>
@@ -208,10 +211,10 @@ Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Pro
 <table width="100%" cellspacing="0" cellpadding="4">
 <tbody>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center"><strong>Name</strong></p>
 </td>
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center"><strong>IP Address</strong></p>
 </td>
 <td style="border: 1px solid #000000; padding: 0.04in; height: 35px;" width="25%">
@@ -219,55 +222,55 @@ Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Pro
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">Jumpbox</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">10.10.0.4</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">No</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Target-One VM</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;10.10.0.5</p>
 </td>
 <td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; text-align: center; height: 35px;" width="25%"><br /><p align="center">No</p></td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Target-Two VM</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">10.10.0.6</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;No</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Load Balancer</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">40.91.81.104</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;Yes</p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;ELK Server VM</p>
 </td>
-<td style="border-color: currentcolor currentcolor #000000 #000000; border-style: none none solid solid; border-width: medium medium 1px 1px; padding: 0in 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;10.1.0.4</p>
 </td>
-<td style="border-color: currentcolor #000000 #000000; border-style: none solid solid; border-width: medium 1px 1px; padding: 0in 0.04in 0.04in; height: 35px;" width="25%">
+<td>
 <p align="center">&nbsp;No</p>
 </td>
 </tr>
