@@ -15,28 +15,31 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 <li style="margin-bottom: 0in; line-height: 100%;"><a href="#elk-config">ELK Configuration</a></li>
 <li style="margin-bottom: 0in; line-height: 100%;"><a href="#beats">Beats in Use</a></li>
 </ol>
-<p style="margin-bottom: 0in; line-height: 100%;" align="center">&nbsp;</p>
 <br />
-<p style="margin-bottom: 0in; line-height: 100%;" align="center"><h2><a id="network-diagram">1. Network Diagram</a></h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;" align="center"><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/NetworkDiagram.png?raw=true" alt="" /></p>
-<p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
+<p><h2><a id="network-diagram">1. Network Diagram</a></h2></p>
+<p><br />&nbsp; <br clear="left" /> <img src="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/NetworkDiagram.png?raw=true" alt="Pictured here is a diagram of a 
+network, including a workstation connected to the internet, which can SSH to our Jumpbox Virtual Machine that contains the Docker application/Ansible container that will deploy 
+DVWA and filebeat to two other VMs (Target-One and Target-Two, acting as our webservers). Additionally, there is a fourth VM, the ELK server, that contains the ELK applications, deployed via the ansible container 
+in the jumpbox VM."></p>
+<br />
 <p style="margin-bottom: 0in; line-height: 100%; text-align: center;"><h2><a id="important-files">2. Important Files</a></h2></p>
-<p style="margin-bottom: 0in; line-height: 100%;">The files available in this repository have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above, or, alternatively, select portions of these files may be used to install only certain pieces of it, such as Filebeat. However, there are also a few files already present in the machine once the appropriate containers are made, and some changes are necessary for successful deployment. Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md"><strong>Set-Up Guide</strong></a> for more details.</p>
-<p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
-<p style="margin-bottom: 0in; line-height: 100%;">&nbsp;</p>
+<p style="margin-bottom: 0in; line-height: 100%;">The files available in this repository have been tested and used to generate a live ELK deployment on Azure. 
+They can be used to either recreate the entire deployment pictured above, or, alternatively, select portions of these files may be used to install only certain pieces of it, such as Filebeat. 
+However, there are also a few files already present in the machine once the appropriate containers are made, and some changes are necessary for successful deployment. 
+Please refer to the&nbsp;<a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/setupguide.md"><strong>Set-Up Guide</strong></a> for more details.</p>
+<br />
 <table width="100%" cellspacing="0" cellpadding="4">
 <tbody>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 </br><p align="center"><strong>File Name</strong></p>
 </td>
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
+<td>
 <br /><p align="center"><strong>Description &amp; Notes</strong></p>
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p>&nbsp;</p>
 <p><em><strong>/etc/ansible/hosts</strong></em></p>
 </td>
@@ -45,7 +48,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p><em><strong>&nbsp;</strong></em></p>
 <p><em><strong>/etc/ansible/ansible.cfg</strong></em></p>
 </td>
@@ -54,7 +57,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p><strong>&nbsp;</strong></p>
 <p><strong><em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/daemon.json">daemon.json</a></em></strong></p>
 </td>
@@ -63,7 +66,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p><strong>&nbsp;</strong></p>
 <p><strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/dvwa-playbook.yml"><em>dvwa-playbook.yml</em></a></strong></p>
 </td>
@@ -72,7 +75,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p><strong>&nbsp;</strong></p>
 <p><strong><em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/install-elk.yml">install-elk.yml</a></em></strong></p>
 </td>
@@ -81,7 +84,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p><strong>&nbsp;<em><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-configuration.yml">/etc/ansible/files/filebeat-config.yml</a></em></strong></p>
 </td>
 <td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 31.5302%;">
@@ -89,7 +92,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <p>&nbsp;</p>
 <p><em><strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/filebeat-playbook.yml">filebeat-playbook.yml</a></strong></em></p>
 </td>
@@ -98,7 +101,7 @@ UCI's Cyber Security Bootcamp Summer-Fall 2020 ELK Stack Project
 </td>
 </tr>
 <tr style="height: 35px;" valign="top">
-<td style="border-color: #000000 currentcolor #000000 #000000; border-style: solid none solid solid; border-width: 1px medium 1px 1px; padding: 0.04in 0in 0.04in 0.04in; height: 35px; width: 18.4698%;">
+<td>
 <br />
 <p style="text-align: left;"><em><strong><a href="https://github.com/vivitranhoang/ELK_Stack_Project/blob/master/startdocker.sh">startdocker.sh</a></strong> </em></p>
 </td>
